@@ -4,14 +4,13 @@
   const mu = document.getElementById('pg-mu')
   const sigma = document.getElementById('pg-sigma')
   const shuffle = document.getElementById('pg-new')
-  const stat = id => document.getElementById(id)
   const band = document.getElementById('pg-band')
   if (!svg || !mu || !sigma) return
 
   const NS = 'http://www.w3.org/2000/svg'
   let W, L, R, STEP
   const BASE = 230
-  const K = 4200 // curve height scale: peak 210px at σ = 8, the area stays the same
+  const K = 2607 // curve height scale: peak 130px at σ = 8, the area stays the same
   const X = score => L + (score / 100) * (R - L)
   const pdf = (x, m, s) => Math.exp(-(((x - m) / s) ** 2) / 2) / (s * Math.sqrt(2 * Math.PI))
   // 40 evenly spread normal quantiles: a perfectly "normal" class to start with.
@@ -45,7 +44,7 @@
     R = W - L
     STEP = phone ? 20 : 10
     svg.replaceChildren()
-    svg.setAttribute('viewBox', `0 ${BASE - 225} ${W} 325`)
+    svg.setAttribute('viewBox', `0 ${BASE - 145} ${W} 225`)
     el('line', { x1: L, y1: BASE, x2: R, y2: BASE, stroke: '#95a2bf' })
     for (let s = 0; s <= 100; s += STEP) {
       el('line', { x1: X(s), y1: BASE, x2: X(s), y2: BASE + 6, stroke: '#95a2bf' })
@@ -91,21 +90,17 @@
     // Box plot under the axis, from the class's own scores.
     const sorted = [...scores].sort((p, q) => p - q)
     const [q1, med, q3] = [0.25, 0.5, 0.75].map(q => quantile(sorted, q))
-    const y = BASE + 62
+    const y = BASE + 52
     box.replaceChildren()
     el('line', { x1: X(sorted[0]), y1: y, x2: X(q1), y2: y }, box)
     el('line', { x1: X(q3), y1: y, x2: X(sorted.at(-1)), y2: y }, box)
-    el('rect', { x: X(q1), y: y - 14, width: X(q3) - X(q1), height: 28 }, box)
-    el('line', { x1: X(med), y1: y - 14, x2: X(med), y2: y + 14, 'stroke-width': 2.5 }, box)
+    el('rect', { x: X(q1), y: y - 10, width: X(q3) - X(q1), height: 20 }, box)
+    el('line', { x1: X(med), y1: y - 10, x2: X(med), y2: y + 10, 'stroke-width': 2.5 }, box)
     for (const v of [sorted[0], sorted.at(-1)]) el('line', { x1: X(v), y1: y - 8, x2: X(v), y2: y + 8 }, box)
 
     const mean = scores.reduce((p, q) => p + q, 0) / scores.length
     const sd = Math.sqrt(scores.reduce((p, q) => p + (q - mean) ** 2, 0) / (scores.length - 1))
-    band.textContent = `About 68% of the class scores between ${Math.round(lo)} and ${Math.round(hi)}.`
-    stat('pg-mean').textContent = r1(mean)
-    stat('pg-median').textContent = r1(med)
-    stat('pg-sd').textContent = r1(sd)
-    stat('pg-iqr').textContent = `${Math.round(q1)} to ${Math.round(q3)}`
+    band.textContent = `Mean ${r1(mean)}, median ${r1(med)}, standard deviation ${r1(sd)}. About 68% score between ${Math.round(lo)} and ${Math.round(hi)}; the box holds the middle half, ${Math.round(q1)} to ${Math.round(q3)}.`
     document.getElementById('pg-mu-v').textContent = m
     document.getElementById('pg-sigma-v').textContent = s
   }

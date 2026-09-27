@@ -36,7 +36,11 @@ section{margin-top:112px}
 .hero-copy{grid-column:1/6}
 .id{display:flex;gap:24px;align-items:center}
 .id h1{font-size:3.25rem}
-.hero .photo-frame{flex:none;width:112px;height:112px}
+.hero .photo-frame{flex:none;width:168px;height:168px;cursor:pointer}
+.photo-frame img{transition:opacity .5s}
+.photo-frame img.hidden{opacity:0}
+.photo-dots{position:absolute;inset:0;width:100%;height:100%;transition:opacity .5s}
+.photo-dots.done{opacity:0;pointer-events:none}
 .hero .reach{grid-column:auto;grid-row:auto;flex-direction:column;gap:10px;margin-top:28px}
 .reach span{display:flex;gap:10px;align-items:center;color:var(--dim);font-size:1rem}
 .hero-board{grid-column:6/13}
@@ -146,7 +150,7 @@ section{margin-top:112px}
   .contact-grid{display:block}
   .id{gap:16px}
   .id h1{font-size:2rem}
-  .hero .photo-frame{width:80px;height:80px}
+  .hero .photo-frame{width:112px;height:112px}
   .big-mail{font-size:1.5rem}
   .langs{margin-top:16px}
 }
@@ -158,11 +162,11 @@ section{margin-top:112px}
 .playground .intro,.skills .intro{color:var(--dim);max-width:40em;margin-top:12px}
 .pg-wrap{display:none;margin-top:32px;border:1px solid var(--grid);grid-template-columns:repeat(12,1fr)}
 .js .pg-wrap{display:grid}
-.pg-chart{grid-column:1/9;display:flex;align-items:center;padding:24px 24px 16px;border-right:1px solid var(--grid);
+.pg-chart{grid-column:1/9;display:flex;align-items:center;padding:12px 16px;border-right:1px solid var(--grid);
   background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
 #pg{display:block;width:100%;height:auto;overflow:visible}
 .pg-tick{font:11px Michroma,sans-serif;fill:var(--dim)}
-.pg-side{grid-column:9/13;padding:24px;display:flex;flex-direction:column;gap:20px}
+.pg-side{grid-column:9/13;padding:16px 20px;display:flex;flex-direction:column;justify-content:center;gap:14px}
 .pg-slider{display:grid;grid-template-columns:1fr auto;gap:8px;font-size:1rem}
 .pg-slider input{grid-column:1/3;width:100%;accent-color:var(--path)}
 .pg-slider output{font-family:Michroma,sans-serif;font-size:.875rem;color:var(--shape)}
@@ -170,7 +174,7 @@ section{margin-top:112px}
 .pg-stats div{background:var(--void);padding:10px 12px}
 .pg-stats dt{font-size:.8125rem;color:var(--dim)}
 .pg-stats dd{font-family:Michroma,sans-serif;font-size:.9375rem;margin-top:4px}
-.pg-band{font-size:1rem}
+.pg-band{font-size:.875rem;color:var(--dim)}
 .pg-new{align-self:flex-start;padding:8px 16px;border:1px solid var(--shape);border-radius:2px;background:none;color:var(--shape);font:inherit;font-size:1rem;cursor:pointer}
 .pg-new:hover{background:var(--shape);color:var(--void)}
 .project-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:24px}
@@ -399,28 +403,6 @@ section{margin-top:112px}
     <p class="earlier small dim">Before this: SEE, Janta Secondary School, Khandbari, 2018.</p>
   </section>
 
-  <section class="playground">
-    <h2>A class of 40</h2>
-    <p class="intro">Every class is a small data set. Move the average and the spread and watch the curve, the students and the box plot follow.</p>
-    <div class="pg-wrap">
-      <div class="pg-chart">
-        <svg id="pg" role="img" aria-label="A normal curve with 40 student scores and a box plot, changed by the controls."></svg>
-      </div>
-      <div class="pg-side">
-        <label class="pg-slider"><span>Average <i class="gr">&#956;</i></span><output id="pg-mu-v">60</output><input id="pg-mu" type="range" min="30" max="80" value="60"></label>
-        <label class="pg-slider"><span>Spread <i class="gr">&#963;</i></span><output id="pg-sigma-v">12</output><input id="pg-sigma" type="range" min="8" max="20" value="12"></label>
-        <dl class="pg-stats" aria-live="polite">
-          <div><dt>Mean</dt><dd id="pg-mean"></dd></div>
-          <div><dt>Median</dt><dd id="pg-median"></dd></div>
-          <div><dt>Std. deviation</dt><dd id="pg-sd"></dd></div>
-          <div><dt>Middle half</dt><dd id="pg-iqr"></dd></div>
-        </dl>
-        <p id="pg-band" class="pg-band"></p>
-        <button id="pg-new" class="pg-new" type="button">New class</button>
-      </div>
-    </div>
-  </section>
-
   <section class="project">
     <h2>Project work</h2>
     <div class="project-grid">
@@ -439,6 +421,22 @@ section{margin-top:112px}
         <svg viewBox="0 0 240 120" role="img" aria-label="200 dots, 49 of them highlighted: 24.5 percent of the children were stunted."><circle cx="6" cy="6" r="4" class="on"/><circle cx="18" cy="6" r="4" class="on"/><circle cx="30" cy="6" r="4" class="on"/><circle cx="42" cy="6" r="4" class="on"/><circle cx="54" cy="6" r="4" class="on"/><circle cx="66" cy="6" r="4" class="on"/><circle cx="78" cy="6" r="4" class="on"/><circle cx="90" cy="6" r="4" class="on"/><circle cx="102" cy="6" r="4" class="on"/><circle cx="114" cy="6" r="4" class="on"/><circle cx="126" cy="6" r="4" class="on"/><circle cx="138" cy="6" r="4" class="on"/><circle cx="150" cy="6" r="4" class="on"/><circle cx="162" cy="6" r="4" class="on"/><circle cx="174" cy="6" r="4" class="on"/><circle cx="186" cy="6" r="4" class="on"/><circle cx="198" cy="6" r="4" class="on"/><circle cx="210" cy="6" r="4" class="on"/><circle cx="222" cy="6" r="4" class="on"/><circle cx="234" cy="6" r="4" class="on"/><circle cx="6" cy="18" r="4" class="on"/><circle cx="18" cy="18" r="4" class="on"/><circle cx="30" cy="18" r="4" class="on"/><circle cx="42" cy="18" r="4" class="on"/><circle cx="54" cy="18" r="4" class="on"/><circle cx="66" cy="18" r="4" class="on"/><circle cx="78" cy="18" r="4" class="on"/><circle cx="90" cy="18" r="4" class="on"/><circle cx="102" cy="18" r="4" class="on"/><circle cx="114" cy="18" r="4" class="on"/><circle cx="126" cy="18" r="4" class="on"/><circle cx="138" cy="18" r="4" class="on"/><circle cx="150" cy="18" r="4" class="on"/><circle cx="162" cy="18" r="4" class="on"/><circle cx="174" cy="18" r="4" class="on"/><circle cx="186" cy="18" r="4" class="on"/><circle cx="198" cy="18" r="4" class="on"/><circle cx="210" cy="18" r="4" class="on"/><circle cx="222" cy="18" r="4" class="on"/><circle cx="234" cy="18" r="4" class="on"/><circle cx="6" cy="30" r="4" class="on"/><circle cx="18" cy="30" r="4" class="on"/><circle cx="30" cy="30" r="4" class="on"/><circle cx="42" cy="30" r="4" class="on"/><circle cx="54" cy="30" r="4" class="on"/><circle cx="66" cy="30" r="4" class="on"/><circle cx="78" cy="30" r="4" class="on"/><circle cx="90" cy="30" r="4" class="on"/><circle cx="102" cy="30" r="4" class="on"/><circle cx="114" cy="30" r="4"/><circle cx="126" cy="30" r="4"/><circle cx="138" cy="30" r="4"/><circle cx="150" cy="30" r="4"/><circle cx="162" cy="30" r="4"/><circle cx="174" cy="30" r="4"/><circle cx="186" cy="30" r="4"/><circle cx="198" cy="30" r="4"/><circle cx="210" cy="30" r="4"/><circle cx="222" cy="30" r="4"/><circle cx="234" cy="30" r="4"/><circle cx="6" cy="42" r="4"/><circle cx="18" cy="42" r="4"/><circle cx="30" cy="42" r="4"/><circle cx="42" cy="42" r="4"/><circle cx="54" cy="42" r="4"/><circle cx="66" cy="42" r="4"/><circle cx="78" cy="42" r="4"/><circle cx="90" cy="42" r="4"/><circle cx="102" cy="42" r="4"/><circle cx="114" cy="42" r="4"/><circle cx="126" cy="42" r="4"/><circle cx="138" cy="42" r="4"/><circle cx="150" cy="42" r="4"/><circle cx="162" cy="42" r="4"/><circle cx="174" cy="42" r="4"/><circle cx="186" cy="42" r="4"/><circle cx="198" cy="42" r="4"/><circle cx="210" cy="42" r="4"/><circle cx="222" cy="42" r="4"/><circle cx="234" cy="42" r="4"/><circle cx="6" cy="54" r="4"/><circle cx="18" cy="54" r="4"/><circle cx="30" cy="54" r="4"/><circle cx="42" cy="54" r="4"/><circle cx="54" cy="54" r="4"/><circle cx="66" cy="54" r="4"/><circle cx="78" cy="54" r="4"/><circle cx="90" cy="54" r="4"/><circle cx="102" cy="54" r="4"/><circle cx="114" cy="54" r="4"/><circle cx="126" cy="54" r="4"/><circle cx="138" cy="54" r="4"/><circle cx="150" cy="54" r="4"/><circle cx="162" cy="54" r="4"/><circle cx="174" cy="54" r="4"/><circle cx="186" cy="54" r="4"/><circle cx="198" cy="54" r="4"/><circle cx="210" cy="54" r="4"/><circle cx="222" cy="54" r="4"/><circle cx="234" cy="54" r="4"/><circle cx="6" cy="66" r="4"/><circle cx="18" cy="66" r="4"/><circle cx="30" cy="66" r="4"/><circle cx="42" cy="66" r="4"/><circle cx="54" cy="66" r="4"/><circle cx="66" cy="66" r="4"/><circle cx="78" cy="66" r="4"/><circle cx="90" cy="66" r="4"/><circle cx="102" cy="66" r="4"/><circle cx="114" cy="66" r="4"/><circle cx="126" cy="66" r="4"/><circle cx="138" cy="66" r="4"/><circle cx="150" cy="66" r="4"/><circle cx="162" cy="66" r="4"/><circle cx="174" cy="66" r="4"/><circle cx="186" cy="66" r="4"/><circle cx="198" cy="66" r="4"/><circle cx="210" cy="66" r="4"/><circle cx="222" cy="66" r="4"/><circle cx="234" cy="66" r="4"/><circle cx="6" cy="78" r="4"/><circle cx="18" cy="78" r="4"/><circle cx="30" cy="78" r="4"/><circle cx="42" cy="78" r="4"/><circle cx="54" cy="78" r="4"/><circle cx="66" cy="78" r="4"/><circle cx="78" cy="78" r="4"/><circle cx="90" cy="78" r="4"/><circle cx="102" cy="78" r="4"/><circle cx="114" cy="78" r="4"/><circle cx="126" cy="78" r="4"/><circle cx="138" cy="78" r="4"/><circle cx="150" cy="78" r="4"/><circle cx="162" cy="78" r="4"/><circle cx="174" cy="78" r="4"/><circle cx="186" cy="78" r="4"/><circle cx="198" cy="78" r="4"/><circle cx="210" cy="78" r="4"/><circle cx="222" cy="78" r="4"/><circle cx="234" cy="78" r="4"/><circle cx="6" cy="90" r="4"/><circle cx="18" cy="90" r="4"/><circle cx="30" cy="90" r="4"/><circle cx="42" cy="90" r="4"/><circle cx="54" cy="90" r="4"/><circle cx="66" cy="90" r="4"/><circle cx="78" cy="90" r="4"/><circle cx="90" cy="90" r="4"/><circle cx="102" cy="90" r="4"/><circle cx="114" cy="90" r="4"/><circle cx="126" cy="90" r="4"/><circle cx="138" cy="90" r="4"/><circle cx="150" cy="90" r="4"/><circle cx="162" cy="90" r="4"/><circle cx="174" cy="90" r="4"/><circle cx="186" cy="90" r="4"/><circle cx="198" cy="90" r="4"/><circle cx="210" cy="90" r="4"/><circle cx="222" cy="90" r="4"/><circle cx="234" cy="90" r="4"/><circle cx="6" cy="102" r="4"/><circle cx="18" cy="102" r="4"/><circle cx="30" cy="102" r="4"/><circle cx="42" cy="102" r="4"/><circle cx="54" cy="102" r="4"/><circle cx="66" cy="102" r="4"/><circle cx="78" cy="102" r="4"/><circle cx="90" cy="102" r="4"/><circle cx="102" cy="102" r="4"/><circle cx="114" cy="102" r="4"/><circle cx="126" cy="102" r="4"/><circle cx="138" cy="102" r="4"/><circle cx="150" cy="102" r="4"/><circle cx="162" cy="102" r="4"/><circle cx="174" cy="102" r="4"/><circle cx="186" cy="102" r="4"/><circle cx="198" cy="102" r="4"/><circle cx="210" cy="102" r="4"/><circle cx="222" cy="102" r="4"/><circle cx="234" cy="102" r="4"/><circle cx="6" cy="114" r="4"/><circle cx="18" cy="114" r="4"/><circle cx="30" cy="114" r="4"/><circle cx="42" cy="114" r="4"/><circle cx="54" cy="114" r="4"/><circle cx="66" cy="114" r="4"/><circle cx="78" cy="114" r="4"/><circle cx="90" cy="114" r="4"/><circle cx="102" cy="114" r="4"/><circle cx="114" cy="114" r="4"/><circle cx="126" cy="114" r="4"/><circle cx="138" cy="114" r="4"/><circle cx="150" cy="114" r="4"/><circle cx="162" cy="114" r="4"/><circle cx="174" cy="114" r="4"/><circle cx="186" cy="114" r="4"/><circle cx="198" cy="114" r="4"/><circle cx="210" cy="114" r="4"/><circle cx="222" cy="114" r="4"/><circle cx="234" cy="114" r="4"/></svg>
         <figcaption><b>24.5%</b> of the children were stunted (weighted). Each dot is 0.5%.</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section class="playground">
+    <h2>A class of 40</h2>
+    <p class="intro">Every class is a small data set. Move the average and the spread.</p>
+    <div class="pg-wrap">
+      <div class="pg-chart">
+        <svg id="pg" role="img" aria-label="A normal curve with 40 student scores and a box plot, changed by the controls."></svg>
+      </div>
+      <div class="pg-side">
+        <label class="pg-slider"><span>Average <i class="gr">&#956;</i></span><output id="pg-mu-v">60</output><input id="pg-mu" type="range" min="30" max="80" value="60"></label>
+        <label class="pg-slider"><span>Spread <i class="gr">&#963;</i></span><output id="pg-sigma-v">12</output><input id="pg-sigma" type="range" min="8" max="20" value="12"></label>
+        <p id="pg-band" class="pg-band"></p>
+        <button id="pg-new" class="pg-new" type="button">New class</button>
+      </div>
     </div>
   </section>
 
@@ -491,5 +489,6 @@ section{margin-top:112px}
 <script src="board.js" defer></script>
 <script src="timeline.js" defer></script>
 <script src="playground.js" defer></script>
+<script src="photo.js" defer></script>
 </body>
 </html>
