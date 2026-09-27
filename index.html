@@ -34,6 +34,11 @@ section{margin-top:112px}
 .hero{padding-top:72px}
 .hero-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center}
 .hero-copy{grid-column:1/6}
+.id{display:flex;gap:24px;align-items:center}
+.id h1{font-size:3.25rem}
+.hero .photo-frame{flex:none;width:112px;height:112px}
+.hero .reach{grid-column:auto;grid-row:auto;flex-direction:column;gap:10px;margin-top:28px}
+.reach span{display:flex;gap:10px;align-items:center;color:var(--dim);font-size:1rem}
 .hero-board{grid-column:6/13}
 .place{margin-top:16px}
 .btn{display:inline-block;margin-top:32px;padding:12px 24px;background:var(--shape);color:var(--void);
@@ -97,8 +102,8 @@ section{margin-top:112px}
 .tick.p-tr{top:-5px;right:-5px;border-top-width:1px;border-right-width:1px}
 .tick.p-bl{bottom:-5px;left:-5px;border-bottom-width:1px;border-left-width:1px}
 .tick.p-br{bottom:-5px;right:-5px;border-bottom-width:1px;border-right-width:1px}
-.big-mail{grid-column:3/13;grid-row:1;align-self:end;font-weight:600;font-size:3rem;line-height:1.1;overflow-wrap:anywhere}
-.langs{grid-column:3/13;grid-row:2;align-self:start}
+.big-mail{display:inline-block;margin-top:24px;font-weight:600;font-size:3rem;line-height:1.1;overflow-wrap:anywhere}
+.langs{margin-top:16px}
 
 /* vertical timeline below 1024px */
 @media (max-width:1023.98px){
@@ -139,7 +144,9 @@ section{margin-top:112px}
   .n3{flex-direction:column;gap:4px}
   .n3 .arrow{margin-top:0}
   .contact-grid{display:block}
-  .photo-frame{width:112px;height:112px;margin-bottom:24px}
+  .id{gap:16px}
+  .id h1{font-size:2rem}
+  .hero .photo-frame{width:80px;height:80px}
   .big-mail{font-size:1.5rem}
   .langs{margin-top:16px}
 }
@@ -149,25 +156,43 @@ section{margin-top:112px}
 }
 
 .playground .intro,.skills .intro{color:var(--dim);max-width:40em;margin-top:12px}
-.pg-wrap{display:none;margin-top:24px}
-.js .pg-wrap{display:block}
+.pg-wrap{display:none;margin-top:32px;border:1px solid var(--grid);grid-template-columns:repeat(12,1fr)}
+.js .pg-wrap{display:grid}
+.pg-chart{grid-column:1/9;display:flex;align-items:center;padding:24px 24px 16px;border-right:1px solid var(--grid);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
 #pg{display:block;width:100%;height:auto;overflow:visible}
 .pg-tick{font:11px Michroma,sans-serif;fill:var(--dim)}
-.pg-controls{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:center;margin-top:24px}
-.pg-controls label{display:flex;gap:12px;align-items:center;font-size:1rem}
-.pg-controls output{font-family:Michroma,sans-serif;font-size:.875rem;min-width:2.5em;color:var(--shape)}
-.pg-controls input[type=range]{width:200px;accent-color:var(--path)}
-.pg-new{padding:8px 16px;border:1px solid var(--shape);border-radius:2px;background:none;color:var(--shape);font:inherit;font-size:1rem;cursor:pointer}
+.pg-side{grid-column:9/13;padding:24px;display:flex;flex-direction:column;gap:20px}
+.pg-slider{display:grid;grid-template-columns:1fr auto;gap:8px;font-size:1rem}
+.pg-slider input{grid-column:1/3;width:100%;accent-color:var(--path)}
+.pg-slider output{font-family:Michroma,sans-serif;font-size:.875rem;color:var(--shape)}
+.pg-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--grid);border:1px solid var(--grid)}
+.pg-stats div{background:var(--void);padding:10px 12px}
+.pg-stats dt{font-size:.8125rem;color:var(--dim)}
+.pg-stats dd{font-family:Michroma,sans-serif;font-size:.9375rem;margin-top:4px}
+.pg-band{font-size:1rem}
+.pg-new{align-self:flex-start;padding:8px 16px;border:1px solid var(--shape);border-radius:2px;background:none;color:var(--shape);font:inherit;font-size:1rem;cursor:pointer}
 .pg-new:hover{background:var(--shape);color:var(--void)}
-#pg-band{margin-top:16px}
-#pg-out{margin-top:4px}
+.project-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:24px}
+.project-copy{grid-column:1/8;max-width:40em}
+.project-copy h3{font-weight:600;font-size:1.25rem;line-height:1.35}
+.project-copy>*+*{margin-top:16px}
+.method{list-style:none;border-left:2px solid var(--shape);padding-left:16px;font-size:1rem}
+.method li+li{margin-top:6px}
+.waffle{grid-column:9/13;align-self:start;margin:0;padding:20px;border:1px solid var(--grid)}
+.waffle svg{display:block;width:100%;height:auto}
+.waffle circle{fill:var(--peg)}
+.waffle circle.on{fill:var(--path)}
+.waffle figcaption{margin-top:12px;font-size:.875rem;color:var(--dim)}
+.waffle b{font:400 1.5rem Michroma,sans-serif;color:var(--path);display:block;margin-bottom:4px}
 .tools-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:24px}
 .tools-grid>div{grid-column:span 6}
 .tools h3{font:400 1rem/1.3 Michroma,sans-serif;color:var(--dim)}
 .tool-list{list-style:none;display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
 .tool-list li{padding:8px 16px;border:1px solid var(--peg);border-left:3px solid var(--path);font-size:1rem}
 .cert-list{list-style:none;margin-top:16px}
-.cert-list li{display:flex;gap:12px;align-items:center;font-size:1rem}
+.cert-list li{display:flex;gap:12px;align-items:flex-start;font-size:1rem}
+.cert-list li+li{margin-top:14px}
 .cert-list svg{flex:none;stroke:var(--shape);fill:none;stroke-width:1.5}
 .reach{list-style:none;display:flex;flex-wrap:wrap;gap:16px 32px;margin-top:16px;grid-column:3/13;grid-row:3}
 .reach a{display:flex;gap:10px;align-items:center;color:var(--ink);font-size:1rem}
@@ -175,8 +200,10 @@ section{margin-top:112px}
 .reach svg{flex:none;width:22px;height:22px;stroke:var(--shape);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .earlier{margin-top:16px}
 @media (max-width:719.98px){
-  .pg-controls input[type=range]{width:140px}
-  .tools-grid{display:block}
+  .js .pg-wrap{display:block}
+  .pg-chart{border-right:0;border-bottom:1px solid var(--grid);padding:16px 12px 8px}
+  .tools-grid,.project-grid{display:block}
+  .waffle{margin-top:24px}
   .tools-grid>div+div{margin-top:32px}
   .reach{flex-direction:column}
 }
@@ -188,10 +215,20 @@ section{margin-top:112px}
   <header class="hero">
     <div class="hero-grid">
       <div class="hero-copy">
-        <h1>Sabin Pokhrel</h1>
+        <div class="id">
+          <div class="photo-frame">
+            <img src="photo.jpg" alt="Sabin Pokhrel" width="320" height="320">
+            <i class="tick p-tl"></i><i class="tick p-tr"></i><i class="tick p-bl"></i><i class="tick p-br"></i>
+          </div>
+          <h1>Sabin Pokhrel</h1>
+        </div>
         <p class="lead">Maths and Science teacher since 2019.<br>BSc Physics &amp; Statistics, major in Statistics, Central Campus of Technology, Dharan. Graduated 2026.</p>
-        <p class="place small dim">Dharan, Nepal</p>
-        <a class="btn" href="mailto:pokhrelsabin76@gmail.com">Email Sabin</a>
+        <ul class="reach">
+          <li><a href="tel:+9779810411223"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>+977 981-0411223</a></li>
+          <li><a href="mailto:pokhrelsabin76@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg>pokhrelsabin76@gmail.com</a></li>
+          <li><a href="https://www.facebook.com/share/1Dm4jBQtgG/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M15.5 8H14a2 2 0 0 0-2 2v11M9.5 13h5"/></svg>Facebook</a></li>
+          <li><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Dharan, Nepal</span></li>
+        </ul>
       </div>
       <div class="hero-board">
         <div class="board">
@@ -224,7 +261,7 @@ section{margin-top:112px}
   </header>
 
   <section class="timeline">
-    <h2>Teaching and study</h2>
+    <h2>Experience and study</h2>
     <div class="plot">
       <span class="rowname rn-t" id="rn-teaching">Teaching</span>
       <span class="rowname rn-s" id="rn-study">Study</span>
@@ -366,14 +403,42 @@ section{margin-top:112px}
     <h2>A class of 40</h2>
     <p class="intro">Every class is a small data set. Move the average and the spread and watch the curve, the students and the box plot follow.</p>
     <div class="pg-wrap">
-      <svg id="pg" role="img" aria-label="A normal curve with 40 student scores and a box plot, changed by the sliders below."></svg>
-      <div class="pg-controls">
-        <label>Average <i class="gr">&#956;</i> <input id="pg-mu" type="range" min="30" max="80" value="60"> <output id="pg-mu-v">60</output></label>
-        <label>Spread <i class="gr">&#963;</i> <input id="pg-sigma" type="range" min="6" max="20" value="12"> <output id="pg-sigma-v">12</output></label>
+      <div class="pg-chart">
+        <svg id="pg" role="img" aria-label="A normal curve with 40 student scores and a box plot, changed by the controls."></svg>
+      </div>
+      <div class="pg-side">
+        <label class="pg-slider"><span>Average <i class="gr">&#956;</i></span><output id="pg-mu-v">60</output><input id="pg-mu" type="range" min="30" max="80" value="60"></label>
+        <label class="pg-slider"><span>Spread <i class="gr">&#963;</i></span><output id="pg-sigma-v">12</output><input id="pg-sigma" type="range" min="8" max="20" value="12"></label>
+        <dl class="pg-stats" aria-live="polite">
+          <div><dt>Mean</dt><dd id="pg-mean"></dd></div>
+          <div><dt>Median</dt><dd id="pg-median"></dd></div>
+          <div><dt>Std. deviation</dt><dd id="pg-sd"></dd></div>
+          <div><dt>Middle half</dt><dd id="pg-iqr"></dd></div>
+        </dl>
+        <p id="pg-band" class="pg-band"></p>
         <button id="pg-new" class="pg-new" type="button">New class</button>
       </div>
-      <p id="pg-band" aria-live="polite"></p>
-      <p id="pg-out" class="small dim" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="project">
+    <h2>Project work</h2>
+    <div class="project-grid">
+      <div class="project-copy">
+        <h3>Factors associated with childhood stunting in Nepal: an analysis of the Nepal Demographic and Health Survey (NDHS)</h3>
+        <p class="small dim">BSc Statistics project, Department of Mathematics &amp; Statistics, Central Campus of Technology, Tribhuvan University. August 2026. Supervisor Asst. Prof. Roma Ghimire, co-supervisor Teach. Asst. Sagar Gautam.</p>
+        <p>Which factors go with stunting in children under three in Nepal? I used NDHS 2022 data: a weighted sample of 1,505 children aged 0 to 35 months.</p>
+        <ul class="method">
+          <li>Frequencies and Pearson chi-square tests</li>
+          <li>Hierarchical binary logistic regression</li>
+          <li>Model fit: Nagelkerke R² = 0.224, Hosmer–Lemeshow p = 0.721</li>
+        </ul>
+        <p>The child's age, size at birth and the gap since the previous birth mattered. So did the mother's education, household poverty and household size. The child's sex, diarrhoea, antenatal care, water and sanitation, and place of residence did not, once the rest was taken into account.</p>
+      </div>
+      <figure class="waffle">
+        <svg viewBox="0 0 240 120" role="img" aria-label="200 dots, 49 of them highlighted: 24.5 percent of the children were stunted."><circle cx="6" cy="6" r="4" class="on"/><circle cx="18" cy="6" r="4" class="on"/><circle cx="30" cy="6" r="4" class="on"/><circle cx="42" cy="6" r="4" class="on"/><circle cx="54" cy="6" r="4" class="on"/><circle cx="66" cy="6" r="4" class="on"/><circle cx="78" cy="6" r="4" class="on"/><circle cx="90" cy="6" r="4" class="on"/><circle cx="102" cy="6" r="4" class="on"/><circle cx="114" cy="6" r="4" class="on"/><circle cx="126" cy="6" r="4" class="on"/><circle cx="138" cy="6" r="4" class="on"/><circle cx="150" cy="6" r="4" class="on"/><circle cx="162" cy="6" r="4" class="on"/><circle cx="174" cy="6" r="4" class="on"/><circle cx="186" cy="6" r="4" class="on"/><circle cx="198" cy="6" r="4" class="on"/><circle cx="210" cy="6" r="4" class="on"/><circle cx="222" cy="6" r="4" class="on"/><circle cx="234" cy="6" r="4" class="on"/><circle cx="6" cy="18" r="4" class="on"/><circle cx="18" cy="18" r="4" class="on"/><circle cx="30" cy="18" r="4" class="on"/><circle cx="42" cy="18" r="4" class="on"/><circle cx="54" cy="18" r="4" class="on"/><circle cx="66" cy="18" r="4" class="on"/><circle cx="78" cy="18" r="4" class="on"/><circle cx="90" cy="18" r="4" class="on"/><circle cx="102" cy="18" r="4" class="on"/><circle cx="114" cy="18" r="4" class="on"/><circle cx="126" cy="18" r="4" class="on"/><circle cx="138" cy="18" r="4" class="on"/><circle cx="150" cy="18" r="4" class="on"/><circle cx="162" cy="18" r="4" class="on"/><circle cx="174" cy="18" r="4" class="on"/><circle cx="186" cy="18" r="4" class="on"/><circle cx="198" cy="18" r="4" class="on"/><circle cx="210" cy="18" r="4" class="on"/><circle cx="222" cy="18" r="4" class="on"/><circle cx="234" cy="18" r="4" class="on"/><circle cx="6" cy="30" r="4" class="on"/><circle cx="18" cy="30" r="4" class="on"/><circle cx="30" cy="30" r="4" class="on"/><circle cx="42" cy="30" r="4" class="on"/><circle cx="54" cy="30" r="4" class="on"/><circle cx="66" cy="30" r="4" class="on"/><circle cx="78" cy="30" r="4" class="on"/><circle cx="90" cy="30" r="4" class="on"/><circle cx="102" cy="30" r="4" class="on"/><circle cx="114" cy="30" r="4"/><circle cx="126" cy="30" r="4"/><circle cx="138" cy="30" r="4"/><circle cx="150" cy="30" r="4"/><circle cx="162" cy="30" r="4"/><circle cx="174" cy="30" r="4"/><circle cx="186" cy="30" r="4"/><circle cx="198" cy="30" r="4"/><circle cx="210" cy="30" r="4"/><circle cx="222" cy="30" r="4"/><circle cx="234" cy="30" r="4"/><circle cx="6" cy="42" r="4"/><circle cx="18" cy="42" r="4"/><circle cx="30" cy="42" r="4"/><circle cx="42" cy="42" r="4"/><circle cx="54" cy="42" r="4"/><circle cx="66" cy="42" r="4"/><circle cx="78" cy="42" r="4"/><circle cx="90" cy="42" r="4"/><circle cx="102" cy="42" r="4"/><circle cx="114" cy="42" r="4"/><circle cx="126" cy="42" r="4"/><circle cx="138" cy="42" r="4"/><circle cx="150" cy="42" r="4"/><circle cx="162" cy="42" r="4"/><circle cx="174" cy="42" r="4"/><circle cx="186" cy="42" r="4"/><circle cx="198" cy="42" r="4"/><circle cx="210" cy="42" r="4"/><circle cx="222" cy="42" r="4"/><circle cx="234" cy="42" r="4"/><circle cx="6" cy="54" r="4"/><circle cx="18" cy="54" r="4"/><circle cx="30" cy="54" r="4"/><circle cx="42" cy="54" r="4"/><circle cx="54" cy="54" r="4"/><circle cx="66" cy="54" r="4"/><circle cx="78" cy="54" r="4"/><circle cx="90" cy="54" r="4"/><circle cx="102" cy="54" r="4"/><circle cx="114" cy="54" r="4"/><circle cx="126" cy="54" r="4"/><circle cx="138" cy="54" r="4"/><circle cx="150" cy="54" r="4"/><circle cx="162" cy="54" r="4"/><circle cx="174" cy="54" r="4"/><circle cx="186" cy="54" r="4"/><circle cx="198" cy="54" r="4"/><circle cx="210" cy="54" r="4"/><circle cx="222" cy="54" r="4"/><circle cx="234" cy="54" r="4"/><circle cx="6" cy="66" r="4"/><circle cx="18" cy="66" r="4"/><circle cx="30" cy="66" r="4"/><circle cx="42" cy="66" r="4"/><circle cx="54" cy="66" r="4"/><circle cx="66" cy="66" r="4"/><circle cx="78" cy="66" r="4"/><circle cx="90" cy="66" r="4"/><circle cx="102" cy="66" r="4"/><circle cx="114" cy="66" r="4"/><circle cx="126" cy="66" r="4"/><circle cx="138" cy="66" r="4"/><circle cx="150" cy="66" r="4"/><circle cx="162" cy="66" r="4"/><circle cx="174" cy="66" r="4"/><circle cx="186" cy="66" r="4"/><circle cx="198" cy="66" r="4"/><circle cx="210" cy="66" r="4"/><circle cx="222" cy="66" r="4"/><circle cx="234" cy="66" r="4"/><circle cx="6" cy="78" r="4"/><circle cx="18" cy="78" r="4"/><circle cx="30" cy="78" r="4"/><circle cx="42" cy="78" r="4"/><circle cx="54" cy="78" r="4"/><circle cx="66" cy="78" r="4"/><circle cx="78" cy="78" r="4"/><circle cx="90" cy="78" r="4"/><circle cx="102" cy="78" r="4"/><circle cx="114" cy="78" r="4"/><circle cx="126" cy="78" r="4"/><circle cx="138" cy="78" r="4"/><circle cx="150" cy="78" r="4"/><circle cx="162" cy="78" r="4"/><circle cx="174" cy="78" r="4"/><circle cx="186" cy="78" r="4"/><circle cx="198" cy="78" r="4"/><circle cx="210" cy="78" r="4"/><circle cx="222" cy="78" r="4"/><circle cx="234" cy="78" r="4"/><circle cx="6" cy="90" r="4"/><circle cx="18" cy="90" r="4"/><circle cx="30" cy="90" r="4"/><circle cx="42" cy="90" r="4"/><circle cx="54" cy="90" r="4"/><circle cx="66" cy="90" r="4"/><circle cx="78" cy="90" r="4"/><circle cx="90" cy="90" r="4"/><circle cx="102" cy="90" r="4"/><circle cx="114" cy="90" r="4"/><circle cx="126" cy="90" r="4"/><circle cx="138" cy="90" r="4"/><circle cx="150" cy="90" r="4"/><circle cx="162" cy="90" r="4"/><circle cx="174" cy="90" r="4"/><circle cx="186" cy="90" r="4"/><circle cx="198" cy="90" r="4"/><circle cx="210" cy="90" r="4"/><circle cx="222" cy="90" r="4"/><circle cx="234" cy="90" r="4"/><circle cx="6" cy="102" r="4"/><circle cx="18" cy="102" r="4"/><circle cx="30" cy="102" r="4"/><circle cx="42" cy="102" r="4"/><circle cx="54" cy="102" r="4"/><circle cx="66" cy="102" r="4"/><circle cx="78" cy="102" r="4"/><circle cx="90" cy="102" r="4"/><circle cx="102" cy="102" r="4"/><circle cx="114" cy="102" r="4"/><circle cx="126" cy="102" r="4"/><circle cx="138" cy="102" r="4"/><circle cx="150" cy="102" r="4"/><circle cx="162" cy="102" r="4"/><circle cx="174" cy="102" r="4"/><circle cx="186" cy="102" r="4"/><circle cx="198" cy="102" r="4"/><circle cx="210" cy="102" r="4"/><circle cx="222" cy="102" r="4"/><circle cx="234" cy="102" r="4"/><circle cx="6" cy="114" r="4"/><circle cx="18" cy="114" r="4"/><circle cx="30" cy="114" r="4"/><circle cx="42" cy="114" r="4"/><circle cx="54" cy="114" r="4"/><circle cx="66" cy="114" r="4"/><circle cx="78" cy="114" r="4"/><circle cx="90" cy="114" r="4"/><circle cx="102" cy="114" r="4"/><circle cx="114" cy="114" r="4"/><circle cx="126" cy="114" r="4"/><circle cx="138" cy="114" r="4"/><circle cx="150" cy="114" r="4"/><circle cx="162" cy="114" r="4"/><circle cx="174" cy="114" r="4"/><circle cx="186" cy="114" r="4"/><circle cx="198" cy="114" r="4"/><circle cx="210" cy="114" r="4"/><circle cx="222" cy="114" r="4"/><circle cx="234" cy="114" r="4"/></svg>
+        <figcaption><b>24.5%</b> of the children were stunted (weighted). Each dot is 0.5%.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -409,26 +474,17 @@ section{margin-top:112px}
         <h3>Training and certification</h3>
         <ul class="cert-list">
           <li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg>SPSS training</li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg><span>One-day seminar on "Climate Change and Sustainable Development", participant</span></li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg><span>Regional Conference on Science and Technology (RCST 2026, 2nd edition), Central Campus of Technology, Dharan, May 1 to 2, 2026, participant</span></li>
         </ul>
       </div>
     </div>
   </section>
 
   <section class="contact">
-    <h2 class="vh">Contact</h2>
-    <div class="contact-grid">
-      <div class="photo-frame">
-        <img src="photo.jpg" alt="Sabin Pokhrel" width="320" height="320">
-        <i class="tick p-tl"></i><i class="tick p-tr"></i><i class="tick p-bl"></i><i class="tick p-br"></i>
-      </div>
-      <a class="big-mail" href="mailto:pokhrelsabin76@gmail.com">pokhrelsabin76@gmail.com</a>
-      <p class="langs">Speaks Nepali (native) and English (proficient).</p>
-      <ul class="reach">
-        <li><a href="tel:+9779810411223"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>+977 981-0411223</a></li>
-        <li><a href="mailto:pokhrelsabin76@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg>Email</a></li>
-        <li><a href="https://www.facebook.com/share/1Dm4jBQtgG/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M15.5 8H14a2 2 0 0 0-2 2v11M9.5 13h5"/></svg>Facebook</a></li>
-      </ul>
-    </div>
+    <h2>Get in touch</h2>
+    <a class="big-mail" href="mailto:pokhrelsabin76@gmail.com">pokhrelsabin76@gmail.com</a>
+    <p class="langs">Call <a href="tel:+9779810411223">+977 981-0411223</a>. Speaks Nepali (native) and English (proficient).</p>
   </section>
 
 </main>
