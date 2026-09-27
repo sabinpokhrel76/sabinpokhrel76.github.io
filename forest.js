@@ -34,7 +34,7 @@
   }
 
   const say = ([label, ref, or, lo, hi]) => {
-    const ci = `95% CI ${lo} to ${hi}`
+    const ci = `95% CI ${lo.toFixed(2)} to ${hi.toFixed(2)}`
     if (lo <= 1 && hi >= 1) return `${label}: odds ratio ${or} compared with ${ref} (${ci}). The interval crosses 1, so no clear effect once the other factors are taken into account.`
     if (or > 1) return `${label}: ${or} times the odds of stunting compared with ${ref} (${ci}).`
     return `${label}: ${Math.round((1 - or) * 100)}% lower odds of stunting than ${ref} (${ci}).`
