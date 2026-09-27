@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#080d1a">
+<meta name="description" content="Sabin Pokhrel teaches Maths and Science in Dharan, Nepal. Teaching since 2019. BSc Physics &amp; Statistics, Central Campus of Technology, Dharan, graduated 2026.">
+<title>Sabin Pokhrel, Maths and Science teacher in Dharan</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Michroma&amp;family=Atkinson+Hyperlegible+Next:wght@400;600&amp;family=Kalam&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital@0;1&amp;text=%CF%83%CE%BC%CE%94&amp;display=swap">
+<style>
+:root{
+  --void:#080d1a;--grid:#1a2540;--peg:#34436a;--ink:#e8edf7;--dim:#95a2bf;
+  --path:#ffb35c;--shape:#86e1ee;--chalk:#efe3bf;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:dark}
+body{background:var(--void);color:var(--ink);font:400 1.25rem/1.5 "Atkinson Hyperlegible Next",system-ui,sans-serif}
+.container{max-width:1148px;margin-inline:auto;padding-inline:24px}
+a{color:var(--shape);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--shape);outline-offset:2px}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.dim{color:var(--dim)}
+
+h1{font:400 4.5rem/1.05 Michroma,sans-serif;letter-spacing:-.01em}
+h2{font:400 1.5rem/1.2 Michroma,sans-serif}
+.lead{font-size:1.5rem;line-height:1.4;margin-top:24px}
+.small{font-size:.875rem;line-height:1.4}
+
+section{margin-top:112px}
+.hero{padding-top:72px}
+.hero-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center}
+.hero-copy{grid-column:1/6}
+.hero-board{grid-column:6/13}
+.place{margin-top:16px}
+.btn{display:inline-block;margin-top:32px;padding:12px 24px;background:var(--shape);color:var(--void);
+  font-weight:600;font-size:1.25rem;line-height:1.3;border-radius:2px}
+.btn:hover{background:#a9ecf4;text-decoration:none}
+
+.board{position:relative}
+.board-svg{display:block;width:100%;height:auto}
+.js .board-svg{display:none}
+.board-btn{display:none;width:100%;padding:0;border:0;background:none;cursor:pointer}
+.js .board-btn{display:block}
+.board-btn canvas{display:block}
+.board-btn:focus-visible{outline:2px solid var(--shape);outline-offset:4px}
+.caption{display:none;margin-top:8px}
+.js .caption{display:block}
+
+.note{font-family:Kalam,cursive;color:var(--chalk);font-size:1.375rem;line-height:1.2}
+.gr{font-family:"STIX Two Text",serif;font-style:italic}
+.arrow{stroke:var(--chalk);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.n1{position:absolute;top:8px;right:16px;display:flex;gap:8px;align-items:flex-start;transform:rotate(-3deg)}
+.n1 .arrow{transform:rotate(-35deg);margin-top:12px}
+.n2{position:absolute;left:51%;top:70%;display:flex;gap:8px;align-items:center;transform:rotate(2deg);white-space:nowrap}
+
+.plot{position:relative;margin-left:72px;margin-top:24px;height:440px;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px}
+.rowname{position:absolute;left:-72px;width:64px;color:var(--dim);font-size:.875rem;line-height:1.4}
+.rn-t{top:150px}
+.rn-s{top:268px}
+.tl-h{display:block;width:100%;height:440px;overflow:visible}
+.tl-v{display:none}
+.timeline line[pathLength]{transition:stroke-dashoffset .6s cubic-bezier(.2,.7,.2,1)}
+.timeline circle{transition:opacity .18s ease-out}
+.timeline.undrawn circle{opacity:0}
+.tl-h text{font-family:Michroma,sans-serif;font-size:12px;fill:var(--dim)}
+.tl-labels{list-style:none;padding:0;margin:0}
+.tl-labels li{position:absolute;width:180px}
+.tl-labels .teach{bottom:268px;left:calc(var(--a)*100%)}
+.tl-labels .study{top:268px;left:calc(var(--a)*100%)}
+.tl-labels h3{font-weight:600;font-size:.9375rem;line-height:1.3}
+.tl-labels p{font-size:.875rem;line-height:1.4}
+.tl-labels .dates{color:var(--dim)}
+.n3{position:absolute;left:66%;top:288px;display:flex;gap:8px;align-items:flex-start;transform:rotate(-2deg)}
+.n3 .arrow{transform:rotate(35deg);margin-top:6px}
+
+.skills-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:24px}
+.skill-list{grid-column:1/8;list-style:none}
+.skill-list li{display:flex;gap:16px;align-items:baseline}
+.skill-list li+li{margin-top:16px}
+.glyph{font-family:"STIX Two Text",serif;font-style:italic;font-size:1.75rem;line-height:1;width:1.25em}
+.glyph.up{font-style:normal}
+.n4{grid-column:8/13;align-self:end;display:flex;gap:8px;align-items:flex-start;margin-bottom:4px;transform:rotate(1.5deg);white-space:nowrap}
+
+.contact-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:24px}
+.photo-frame{grid-column:1/3;grid-row:1/3;width:160px;height:160px;border:1px solid var(--grid);position:relative}
+.photo-frame img{display:block;width:100%;height:100%;filter:saturate(.9)}
+.tick{position:absolute;width:10px;height:10px;border:0 solid var(--shape)}
+.tick.p-tl{top:-5px;left:-5px;border-top-width:1px;border-left-width:1px}
+.tick.p-tr{top:-5px;right:-5px;border-top-width:1px;border-right-width:1px}
+.tick.p-bl{bottom:-5px;left:-5px;border-bottom-width:1px;border-left-width:1px}
+.tick.p-br{bottom:-5px;right:-5px;border-bottom-width:1px;border-right-width:1px}
+.big-mail{grid-column:3/13;grid-row:1;align-self:end;font-weight:600;font-size:3rem;line-height:1.1;overflow-wrap:anywhere}
+.langs{grid-column:3/13;grid-row:2;align-self:start}
+
+/* vertical timeline below 1024px */
+@media (max-width:1023.98px){
+  .plot{margin-left:0;height:872px;padding-top:32px}
+  .rowname{left:auto;width:auto}
+  .rn-t{top:0;right:calc(50% + 36px);text-align:right}
+  .rn-s{top:0;left:calc(50% + 36px)}
+  .tl-h{display:none}
+  .tl-v{display:block;width:100%;height:840px;overflow:visible}
+  .tl-v text{font:11px Michroma,sans-serif;fill:var(--dim)}
+  .tl-labels li{width:calc(50% - 36px)}
+  .tl-labels .teach{bottom:auto;top:calc(32px + var(--a)*840px);left:0;text-align:right}
+  .tl-labels .study{top:calc(32px + var(--a)*840px);left:calc(50% + 36px)}
+  .n3{left:calc(50% + 36px);right:12px;top:492px;width:calc(50% - 48px)}
+}
+
+/* phone type and one column below 720px */
+@media (max-width:719.98px){
+  body{font-size:1.0625rem}
+  h1{font-size:2.5rem}
+  h2{font-size:1.25rem}
+  .lead{font-size:1.125rem;line-height:1.45}
+  .note{font-size:1.1875rem}
+  .small,.rowname,.tl-labels p{font-size:.8125rem}
+  .tl-labels h3{font-size:.8125rem}
+  .glyph{font-size:1.5rem}
+  .container{padding-inline:16px}
+  section{margin-top:72px}
+  .hero{padding-top:32px}
+  .hero-grid{display:block}
+  .board{margin-top:24px}
+  .n1{position:static;transform:rotate(-3deg);flex-direction:column;align-items:flex-end;gap:4px;margin-bottom:8px}
+  .n1 .arrow{order:1;align-self:center;transform:rotate(-90deg);margin-right:0}
+  .n2{position:static;margin:8px 0 0 45%;flex-direction:column;align-items:flex-start;gap:4px;white-space:normal}
+  .n2 .arrow{transform:rotate(90deg)}
+  .skills-grid{display:block}
+  .n4{margin-top:24px;white-space:normal}
+  .n3{flex-direction:column;gap:4px}
+  .n3 .arrow{margin-top:0}
+  .contact-grid{display:block}
+  .photo-frame{width:112px;height:112px;margin-bottom:24px}
+  .big-mail{font-size:1.5rem}
+  .langs{margin-top:16px}
+}
+@media (max-width:359.98px){
+  h1{font-size:2.125rem}
+  .big-mail{font-size:1.25rem}
+}
+</style>
+</head>
+<body>
+<main class="container">
+
+  <header class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1>Sabin Pokhrel</h1>
+        <p class="lead">Maths and Science teacher since 2019.<br>BSc Physics &amp; Statistics, major in Statistics, Central Campus of Technology, Dharan. Graduated 2026.</p>
+        <p class="place small dim">Dharan, Nepal</p>
+        <a class="btn" href="mailto:pokhrelsabin76@gmail.com">Email Sabin</a>
+      </div>
+      <div class="hero-board">
+        <div class="board">
+          <p class="note n1" aria-hidden="true">
+            <svg class="arrow" width="36" height="12" viewBox="0 0 36 12" aria-hidden="true"><path d="M35 6C26 3 17 8 3 6M10 2 3 6l7 4"/></svg>
+            each ball takes its own path
+          </p>
+          <!-- no-JS Galton board; generated by tools/gen-board-svg.mjs -->
+          <svg class="board-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 632 520" role="img" aria-label="A Galton board: balls fall through pegs and pile up into a bell curve.">
+          <rect width="632" height="520" fill="#080d1a"/>
+          <rect width="632" height="520" fill="url(#g)"/>
+          <path d="M316 24h.01M298 54h.01M334 54h.01M280 84h.01M316 84h.01M352 84h.01M262 114h.01M298 114h.01M334 114h.01M370 114h.01M244 144h.01M280 144h.01M316 144h.01M352 144h.01M388 144h.01M226 174h.01M262 174h.01M298 174h.01M334 174h.01M370 174h.01M406 174h.01M208 204h.01M244 204h.01M280 204h.01M316 204h.01M352 204h.01M388 204h.01M424 204h.01M190 234h.01M226 234h.01M262 234h.01M298 234h.01M334 234h.01M370 234h.01M406 234h.01M442 234h.01M172 264h.01M208 264h.01M244 264h.01M280 264h.01M316 264h.01M352 264h.01M388 264h.01M424 264h.01M460 264h.01M154 294h.01M190 294h.01M226 294h.01M262 294h.01M298 294h.01M334 294h.01M370 294h.01M406 294h.01M442 294h.01M478 294h.01M136 324h.01M172 324h.01M208 324h.01M244 324h.01M280 324h.01M316 324h.01M352 324h.01M388 324h.01M424 324h.01M460 324h.01M496 324h.01M118 354h.01M154 354h.01M190 354h.01M226 354h.01M262 354h.01M298 354h.01M334 354h.01M370 354h.01M406 354h.01M442 354h.01M478 354h.01M514 354h.01" fill="none" stroke="#34436a" stroke-width="3" stroke-linecap="round"/>
+          <rect x="121" y="517.9" width="30" height="2.1" fill="#ffb35c" fill-opacity=".45"/><rect x="157" y="511.5" width="30" height="8.5" fill="#ffb35c" fill-opacity=".45"/><rect x="193" y="492.2" width="30" height="27.8" fill="#ffb35c" fill-opacity=".45"/><rect x="229" y="458.1" width="30" height="61.9" fill="#ffb35c" fill-opacity=".45"/><rect x="265" y="421.8" width="30" height="98.2" fill="#ffb35c" fill-opacity=".45"/><rect x="301" y="404.7" width="30" height="115.3" fill="#ffb35c" fill-opacity=".45"/><rect x="337" y="421.8" width="30" height="98.2" fill="#ffb35c" fill-opacity=".45"/><rect x="373" y="458.1" width="30" height="61.9" fill="#ffb35c" fill-opacity=".45"/><rect x="409" y="492.2" width="30" height="27.8" fill="#ffb35c" fill-opacity=".45"/><rect x="445" y="511.5" width="30" height="8.5" fill="#ffb35c" fill-opacity=".45"/><rect x="481" y="517.9" width="30" height="2.1" fill="#ffb35c" fill-opacity=".45"/>
+          <path d="M100 519.9C106 519.6 124 519.9 136 518.5C148 517.1 160 516.1 172 511.7C184 507.4 196 501.4 208 492.5C220 483.5 232 470 244 458.1C256 446.1 268 429.9 280 420.9C292 412 304 404.4 316 404.4C328 404.4 340 412 352 420.9C364 429.9 376 446.1 388 458.1C400 470 412 483.5 424 492.5C436 501.4 448 507.4 460 511.7C472 516.1 484 517.1 496 518.5C508 519.9 526 519.6 532 519.9" fill="none" stroke="#86e1ee" stroke-opacity=".4" stroke-dasharray="4 4"/>
+          <path d="M100 520C106 519.6 124 519.3 136 517.9C148 516.4 160 515.7 172 511.5C184 507.2 196 501.1 208 492.2C220 483.3 232 469.8 244 458.1C256 446.3 268 430.7 280 421.8C292 412.9 304 404.7 316 404.7C328 404.7 340 412.9 352 421.8C364 430.7 376 446.3 388 458.1C400 469.8 412 483.3 424 492.2C436 501.1 448 507.2 460 511.5C472 515.7 484 516.4 496 517.9C508 519.3 526 519.6 532 520" fill="none" stroke="#86e1ee" stroke-width="2"/>
+          <path d="M316 520V392.4" stroke="#86e1ee" stroke-opacity=".6"/>
+          <defs>
+          <pattern id="g" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M0 .5H24M.5 0V24" stroke="#1a2540" fill="none"/></pattern>
+          </defs>
+          </svg>
+          <button id="board-btn" class="board-btn" type="button" aria-label="Drop 40 more balls"><canvas id="board" role="img" aria-label="A Galton board: balls fall through pegs and pile up into a bell curve."></canvas></button>
+          <p class="note n2" aria-hidden="true">
+            <svg class="arrow" width="36" height="12" viewBox="0 0 36 12" aria-hidden="true"><path d="M35 6C26 3 17 8 3 6M10 2 3 6l7 4"/></svg>
+            <span><i class="gr">&#956;</i> = where most land</span>
+          </p>
+          <p class="caption small dim">Tap the board to drop 40 more.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="timeline">
+    <h2>Teaching and study</h2>
+    <div class="plot">
+      <span class="rowname rn-t" id="rn-teaching">Teaching</span>
+      <span class="rowname rn-s" id="rn-study">Study</span>
+
+      <svg class="tl-h" height="440" aria-hidden="true">
+        <line x1="0" y1="220" x2="100%" y2="220" stroke="#95a2bf"/>
+        <g stroke="#34436a">
+          <line x1="2.38%" y1="172" x2="2.38%" y2="204"/>
+          <line x1="57.14%" y1="172" x2="57.14%" y2="204"/>
+          <line x1="35.71%" y1="172" x2="35.71%" y2="192"/>
+          <line x1="7.14%" y1="236" x2="7.14%" y2="268"/>
+          <line x1="38.10%" y1="248" x2="38.10%" y2="268"/>
+        </g>
+        <line x1="2.38%" y1="204" x2="13.10%" y2="204" stroke="#ffb35c" stroke-width="2" pathLength="1"/>
+        <line x1="28.57%" y1="204" x2="57.14%" y2="204" stroke="#ffb35c" stroke-width="2" pathLength="1"/>
+        <line x1="35.71%" y1="192" x2="39.29%" y2="192" stroke="#ffb35c" stroke-width="2" pathLength="1"/>
+        <line x1="7.14%" y1="236" x2="44.05%" y2="236" stroke="#86e1ee" stroke-width="2" pathLength="1"/>
+        <line x1="38.10%" y1="248" x2="100%" y2="248" stroke="#86e1ee" stroke-width="2" pathLength="1"/>
+        <g fill="#ffb35c">
+          <circle cx="2.38%" cy="204" r="3.5"/><circle cx="13.10%" cy="204" r="3.5"/>
+          <circle cx="28.57%" cy="204" r="3.5"/><circle cx="57.14%" cy="204" r="3.5"/>
+          <circle cx="35.71%" cy="192" r="3.5"/><circle cx="39.29%" cy="192" r="3.5"/>
+        </g>
+        <g fill="#080d1a" stroke="#86e1ee" stroke-width="1.5">
+          <circle cx="7.14%" cy="236" r="3.5"/><circle cx="44.05%" cy="236" r="3.5"/>
+          <circle cx="38.10%" cy="248" r="3.5"/><circle cx="100%" cy="248" r="3.5"/>
+        </g>
+        <svg x="0%" overflow="visible"><rect x="-30" y="209" width="60" height="19" fill="#080d1a"/><text x="0" y="224" text-anchor="middle">2019</text></svg>
+        <svg x="14.29%" overflow="visible"><rect x="-30" y="209" width="60" height="19" fill="#080d1a"/><text x="0" y="224" text-anchor="middle">2020</text></svg>
+        <svg x="28.57%" overflow="visible"><rect x="-30" y="209" width="60" height="19" fill="#080d1a"/><text x="0" y="224" text-anchor="middle">2021</text></svg>
+        <svg x="42.86%" overflow="visible"><rect x="-30" y="209" width="60" height="19" fill="#080d1a"/><text x="0" y="224" text-anchor="middle">2022</text></svg>
+        <svg x="57.14%" overflow="visible"><rect x="-30" y="209" width="60" height="19" fill="#080d1a"/><text x="0" y="224" text-anchor="middle">2023</text></svg>
+        <svg x="71.43%" overflow="visible"><rect x="-30" y="209" width="60" height="19" fill="#080d1a"/><text x="0" y="224" text-anchor="middle">2024</text></svg>
+        <svg x="85.71%" overflow="visible"><rect x="-30" y="209" width="60" height="19" fill="#080d1a"/><text x="0" y="224" text-anchor="middle">2025</text></svg>
+        <svg x="100%" overflow="visible"><rect x="-30" y="209" width="60" height="19" fill="#080d1a"/><text x="0" y="224" text-anchor="end">2026</text></svg>
+      </svg>
+
+      <svg class="tl-v" width="100%" height="840" aria-hidden="true">
+        <svg x="50%" height="100%" overflow="visible">
+          <line x1="0" y1="0" x2="0" y2="840" stroke="#95a2bf"/>
+          <g fill="#080d1a">
+            <rect x="-9.5" y="-24" width="19" height="48"/>
+            <rect x="-9.5" y="96" width="19" height="48"/>
+            <rect x="-9.5" y="216" width="19" height="48"/>
+            <rect x="-9.5" y="336" width="19" height="48"/>
+            <rect x="-9.5" y="456" width="19" height="48"/>
+            <rect x="-9.5" y="576" width="19" height="48"/>
+            <rect x="-9.5" y="696" width="19" height="48"/>
+            <rect x="-9.5" y="816" width="19" height="48"/>
+          </g>
+          <g>
+            <text transform="rotate(-90 0 0)" x="0" y="0" text-anchor="middle" dominant-baseline="central">2019</text>
+            <text transform="rotate(-90 0 120)" x="0" y="120" text-anchor="middle" dominant-baseline="central">2020</text>
+            <text transform="rotate(-90 0 240)" x="0" y="240" text-anchor="middle" dominant-baseline="central">2021</text>
+            <text transform="rotate(-90 0 360)" x="0" y="360" text-anchor="middle" dominant-baseline="central">2022</text>
+            <text transform="rotate(-90 0 480)" x="0" y="480" text-anchor="middle" dominant-baseline="central">2023</text>
+            <text transform="rotate(-90 0 600)" x="0" y="600" text-anchor="middle" dominant-baseline="central">2024</text>
+            <text transform="rotate(-90 0 720)" x="0" y="720" text-anchor="middle" dominant-baseline="central">2025</text>
+            <text transform="rotate(-90 0 840)" x="0" y="840" text-anchor="middle" dominant-baseline="central">2026</text>
+          </g>
+          <path d="M-36 20H-14M-36 480H-14M-36 300H-24M14 60H36M24 320H36" stroke="#34436a"/>
+          <path d="M-14 20V110" stroke="#ffb35c" stroke-width="2" pathLength="1"/>
+          <path d="M-14 240V480" stroke="#ffb35c" stroke-width="2" pathLength="1"/>
+          <path d="M-24 300V330" stroke="#ffb35c" stroke-width="2" pathLength="1"/>
+          <path d="M14 60V370" stroke="#86e1ee" stroke-width="2" pathLength="1"/>
+          <path d="M24 320V840" stroke="#86e1ee" stroke-width="2" pathLength="1"/>
+          <g fill="#ffb35c">
+            <circle cx="-14" cy="20" r="3.5"/><circle cx="-14" cy="110" r="3.5"/>
+            <circle cx="-14" cy="240" r="3.5"/><circle cx="-14" cy="480" r="3.5"/>
+            <circle cx="-24" cy="300" r="3.5"/><circle cx="-24" cy="330" r="3.5"/>
+          </g>
+          <g fill="#080d1a" stroke="#86e1ee" stroke-width="1.5">
+            <circle cx="14" cy="60" r="3.5"/><circle cx="14" cy="370" r="3.5"/>
+            <circle cx="24" cy="320" r="3.5"/><circle cx="24" cy="840" r="3.5"/>
+          </g>
+        </svg>
+      </svg>
+
+      <ol class="tl-labels" aria-labelledby="rn-teaching">
+        <li class="teach" style="--a:.0238">
+          <h3>Janta Secondary School, Khandbari</h3>
+          <p class="dates">Mar 2019 to Nov 2019</p>
+          <p>Replacement teacher for Maths and Science.</p>
+        </li>
+        <li class="teach" style="--a:.5714">
+          <h3>Victory Residential Secondary English School, Dharan</h3>
+          <p class="dates">Jan 2021 to Dec 2022</p>
+          <p>Full-time Maths and Science teacher for secondary level students.</p>
+        </li>
+        <li class="teach" style="--a:.3571">
+          <h3>Ekwa Dynasty Secondary School, Dharan</h3>
+          <p class="dates">Jul 2021 to Sep 2021</p>
+          <p>Part-time replacement teacher.</p>
+        </li>
+      </ol>
+      <ol class="tl-labels" aria-labelledby="rn-study">
+        <li class="study" style="--a:.0714">
+          <h3>+2, Shree Public High School, Dharan</h3>
+          <p class="dates">Jul 2019 to Jan 2022</p>
+        </li>
+        <li class="study" style="--a:.381">
+          <h3>BSc Physics &amp; Statistics, major in Statistics, Central Campus of Technology, Dharan</h3>
+          <p class="dates">2021 to 2026, graduated</p>
+        </li>
+      </ol>
+
+      <p class="note n3" aria-hidden="true">
+        <svg class="arrow" width="36" height="12" viewBox="0 0 36 12" aria-hidden="true"><path d="M35 6C26 3 17 8 3 6M10 2 3 6l7 4"/></svg>
+        teaching and studying, same years
+      </p>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <ul class="skill-list">
+        <li><span class="glyph" aria-hidden="true">&#956;</span>Mathematics and Science subject expertise</li>
+        <li><span class="glyph up" aria-hidden="true">&#916;</span>Classroom management and lesson planning</li>
+        <li><span class="glyph" aria-hidden="true">&#963;</span>Adapting lessons for different learning levels</li>
+      </ul>
+      <p class="note n4" aria-hidden="true">
+        <svg class="arrow" width="36" height="12" viewBox="0 0 36 12" aria-hidden="true"><path d="M35 6C26 3 17 8 3 6M10 2 3 6l7 4"/></svg>
+        <span><i class="gr">&#963;</i> = the spread. teach to all of it.</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2 class="vh">Contact</h2>
+    <div class="contact-grid">
+      <div class="photo-frame">
+        <img src="photo.jpg" alt="Sabin Pokhrel" width="320" height="320">
+        <i class="tick p-tl"></i><i class="tick p-tr"></i><i class="tick p-bl"></i><i class="tick p-br"></i>
+      </div>
+      <a class="big-mail" href="mailto:pokhrelsabin76@gmail.com">pokhrelsabin76@gmail.com</a>
+      <p class="langs">Speaks Nepali (native) and English (proficient).</p>
+    </div>
+  </section>
+
+</main>
+<script src="board.js" defer></script>
+<script src="timeline.js" defer></script>
+</body>
+</html>

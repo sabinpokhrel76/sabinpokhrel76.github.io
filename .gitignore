@@ -1,0 +1,6 @@
+.briefs/
+.shots/
+docs/
+tools/
+board-fallback.svg
+.DS_Store
