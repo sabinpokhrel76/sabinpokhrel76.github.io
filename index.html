@@ -160,23 +160,6 @@ section{margin-top:112px}
 }
 
 .playground .intro,.skills .intro{color:var(--dim);max-width:40em;margin-top:12px}
-.pg-wrap{display:none;margin-top:32px;border:1px solid var(--grid);grid-template-columns:repeat(12,1fr)}
-.js .pg-wrap{display:grid}
-.pg-chart{grid-column:1/9;display:flex;align-items:center;padding:12px 16px;border-right:1px solid var(--grid);
-  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
-#pg{display:block;width:100%;height:auto;overflow:visible}
-.pg-tick{font:11px Michroma,sans-serif;fill:var(--dim)}
-.pg-side{grid-column:9/13;padding:16px 20px;display:flex;flex-direction:column;justify-content:center;gap:14px}
-.pg-slider{display:grid;grid-template-columns:1fr auto;gap:8px;font-size:1rem}
-.pg-slider input{grid-column:1/3;width:100%;accent-color:var(--path)}
-.pg-slider output{font-family:Michroma,sans-serif;font-size:.875rem;color:var(--shape)}
-.pg-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--grid);border:1px solid var(--grid)}
-.pg-stats div{background:var(--void);padding:10px 12px}
-.pg-stats dt{font-size:.8125rem;color:var(--dim)}
-.pg-stats dd{font-family:Michroma,sans-serif;font-size:.9375rem;margin-top:4px}
-.pg-band{font-size:.875rem;color:var(--dim)}
-.pg-new{align-self:flex-start;padding:8px 16px;border:1px solid var(--shape);border-radius:2px;background:none;color:var(--shape);font:inherit;font-size:1rem;cursor:pointer}
-.pg-new:hover{background:var(--shape);color:var(--void)}
 .project-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:24px}
 .project-copy{grid-column:1/8;max-width:40em}
 .project-copy h3{font-weight:600;font-size:1.25rem;line-height:1.35}
@@ -189,6 +172,16 @@ section{margin-top:112px}
 .waffle circle.on{fill:var(--path)}
 .waffle figcaption{margin-top:12px;font-size:.875rem;color:var(--dim)}
 .waffle b{font:400 1.5rem Michroma,sans-serif;color:var(--path);display:block;margin-bottom:4px}
+.forest{margin-top:48px;padding:24px;border:1px solid var(--grid)}
+.forest h3{font-weight:600;font-size:1.125rem}
+.forest .small{margin-top:6px;max-width:48em}
+#forest{display:block;width:100%;height:auto;margin-top:16px}
+.f-tick{font:11px Michroma,sans-serif;fill:var(--dim)}
+.f-label{font-size:14px;fill:var(--ink)}
+.f-hit{fill:transparent}
+.f-row{cursor:pointer;outline:none}
+.f-row:hover .f-hit,.f-row:focus-visible .f-hit,.f-row.on .f-hit{fill:#1a2540}
+.forest-say{margin-top:12px;min-height:3em;font-size:1rem}
 .tools-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:24px}
 .tools-grid>div{grid-column:span 6}
 .tools h3{font:400 1rem/1.3 Michroma,sans-serif;color:var(--dim)}
@@ -204,10 +197,10 @@ section{margin-top:112px}
 .reach svg{flex:none;width:22px;height:22px;stroke:var(--shape);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .earlier{margin-top:16px}
 @media (max-width:719.98px){
-  .js .pg-wrap{display:block}
-  .pg-chart{border-right:0;border-bottom:1px solid var(--grid);padding:16px 12px 8px}
   .tools-grid,.project-grid{display:block}
   .waffle{margin-top:24px}
+  .forest{padding:16px 12px}
+  .f-label{font-size:12px}
   .tools-grid>div+div{margin-top:32px}
   .reach{flex-direction:column}
 }
@@ -445,21 +438,11 @@ section{margin-top:112px}
         <figcaption><b>24.5%</b> of the children were stunted (weighted). Each dot is 0.5%.</figcaption>
       </figure>
     </div>
-  </section>
-
-  <section class="playground">
-    <h2>A class of 40</h2>
-    <p class="intro">Every class is a small data set. Move the average and the spread.</p>
-    <div class="pg-wrap">
-      <div class="pg-chart">
-        <svg id="pg" role="img" aria-label="A normal curve with 40 student scores and a box plot, changed by the controls."></svg>
-      </div>
-      <div class="pg-side">
-        <label class="pg-slider"><span>Average <i class="gr">&#956;</i></span><output id="pg-mu-v">60</output><input id="pg-mu" type="range" min="30" max="80" value="60"></label>
-        <label class="pg-slider"><span>Spread <i class="gr">&#963;</i></span><output id="pg-sigma-v">12</output><input id="pg-sigma" type="range" min="8" max="20" value="12"></label>
-        <p id="pg-band" class="pg-band"></p>
-        <button id="pg-new" class="pg-new" type="button">New class</button>
-      </div>
+    <div class="forest">
+      <h3>What raised or lowered the odds of stunting</h3>
+      <p class="small dim">Adjusted odds ratios from the final model, with 95% confidence intervals, on a log scale. Right of the dashed line means higher odds, left means lower. Tap a row to read it.</p>
+      <svg id="forest" role="group" aria-label="Forest plot of adjusted odds ratios"></svg>
+      <p id="forest-say" class="forest-say" aria-live="polite">Tap a row to read what it means.</p>
     </div>
   </section>
 
@@ -488,7 +471,7 @@ section{margin-top:112px}
 </main>
 <script src="board.js" defer></script>
 <script src="timeline.js" defer></script>
-<script src="playground.js" defer></script>
+<script src="forest.js" defer></script>
 <script src="photo.js" defer></script>
 </body>
 </html>
