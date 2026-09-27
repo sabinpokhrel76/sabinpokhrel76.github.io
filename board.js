@@ -1,6 +1,10 @@
 // Galton board. Values from docs/DESIGN.md sec. 4 and 5.
 ;(() => {
-  const COLOR = { grid: '#1a2540', peg: '#34436a', path: '#ffb35c', shape: '#86e1ee' }
+  const COLOR = {}
+  const readColors = () => {
+    const css = getComputedStyle(document.documentElement)
+    for (const k of ['grid', 'peg', 'path', 'shape']) COLOR[k] = css.getPropertyValue(`--${k}`).trim()
+  }
   const RESET_AT = 1000
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)')
 
@@ -29,6 +33,10 @@
         this._wake()
       }).observe(canvas)
       document.addEventListener('visibilitychange', () => this._wake())
+      document.addEventListener('themechange', () => {
+        this._layout()
+        this._draw()
+      })
       let resizeTimer
       addEventListener('resize', () => {
         clearTimeout(resizeTimer)
@@ -61,6 +69,7 @@
     },
 
     _layout() {
+      readColors()
       const c = (this.cfg = this._config())
       this.dpr = Math.min(devicePixelRatio || 1, 2)
       this.cv.width = Math.round(c.w * this.dpr)
